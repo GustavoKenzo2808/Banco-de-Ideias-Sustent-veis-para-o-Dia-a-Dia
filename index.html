@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Ideias Sustentáveis HVS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .title-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .idea-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .idea-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .badge {
+            transition: all 0.2s ease;
+        }
+        .badge:hover {
+            transform: scale(1.05);
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-green-50">
+    <!-- Header/Navigation -->
+    <header class="bg-green-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                    <h1 class="title-font text-2xl md:text-3xl font-bold">Banco de Ideias Sustentáveis HVS</h1>
+                </div>
+                <nav class="flex space-x-6">
+                    <a href="#inicio" class="hover:text-green-200 transition">Início</a>
+                    <a href="#ideias" class="hover:text-green-200 transition">Ideias</a>
+                    <a href="#contribua" class="hover:text-green-200 transition">Contribua</a>
+                    <a href="#sobre" class="hover:text-green-200 transition">Sobre</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="py-16 md:py-24 bg-gradient-to-r from-green-500 to-green-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="title-font text-4xl md:text-6xl font-bold mb-6 fade-in">Pequnos Gestos, Grandes Impactos</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto fade-in">Descubra e compartilhe ideias sustentáveis para tornar seu dia a dia mais eco-friendly</p>
+            <div class="flex flex-wrap justify-center gap-4 fade-in">
+                <a href="#ideias" class="bg-white text-green-600 px-6 py-3 rounded-lg font-medium hover:bg-green-50 transition shadow-md">Ver Ideias</a>
+                <a href="#contribua" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-green-600 transition">Contribuir</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ideas Section -->
+    <section id="ideias" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center mb-6 text-gray-800">Banco de Ideias</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Explore ideias sustentáveis que você pode implementar no seu cotidiano. Contribua com suas próprias ideias e inspire outras pessoas!</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="ideas-container">
+                <!-- Existing Idea Cards will be here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contribute Section -->
+    <section id="contribua" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center mb-6 text-gray-800">Contribua com sua Ideia</h2>
+            <form id="idea-form" class="max-w-lg mx-auto">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700">Seu Nome:</label>
+                    <input type="text" id="name" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div class="mb-4">
+                    <label for="category" class="block text-gray-700">Categoria:</label>
+                    <select id="category" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                        <option value="casa">Casa</option>
+                        <option value="alimentacao">Alimentação</option>
+                        <option value="transporte">Transporte</option>
+                        <option value="consumo">Consumo</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="description" class="block text-gray-700">Descrição da Ideia:</label>
+                    <textarea id="description" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">Enviar Ideia</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-green-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Banco de Ideias Sustentáveis HVS. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('idea-form');
+        const ideasContainer = document.getElementById('ideas-container');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const category = document.getElementById('category').value;
+            const description = document.getElementById('description').value;
+
+            const newIdeaCard = document.createElement('div');
+            newIdeaCard.className = 'idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition';
+            newIdeaCard.setAttribute('data-category', category);
+            newIdeaCard.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <div class="bg-green-100 p-3 rounded-full mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800">${name}</h3>
+                </div>
+                <p class="text-gray-600 mb-4">${description}</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">${category}</span>
+                </div>
+            `;
+
+            ideasContainer.appendChild(newIdeaCard);
+
+            // Reset the form
+            form.reset();
+        });
+    </script>
+</body>
+</html>
