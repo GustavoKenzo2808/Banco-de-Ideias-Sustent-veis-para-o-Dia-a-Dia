@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Banco de Ideias Sustentáveis HVS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Montserrat:wght@700&amp;display=swap" rel="stylesheet" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -31,8 +31,14 @@
             animation: fadeIn 0.8s ease-in;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -42,7 +48,13 @@
         <div class="container mx-auto px-4 py-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center mb-4 md:mb-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-8 w-8 mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
                     <h1 class="title-font text-2xl md:text-3xl font-bold">Banco de Ideias Sustentáveis HVS</h1>
@@ -58,13 +70,28 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="py-16 md:py-24 bg-gradient-to-r from-green-500 to-green-600 text-white">
+    <section
+        id="inicio"
+        class="py-16 md:py-24 bg-gradient-to-r from-green-500 to-green-600 text-white"
+    >
         <div class="container mx-auto px-4 text-center">
-            <h2 class="title-font text-4xl md:text-6xl font-bold mb-6 fade-in">Pequnos Gestos, Grandes Impactos</h2>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto fade-in">Descubra e compartilhe ideias sustentáveis para tornar seu dia a dia mais eco-friendly</p>
+            <h2 class="title-font text-4xl md:text-6xl font-bold mb-6 fade-in">
+                Pequnos Gestos, Grandes Impactos
+            </h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto fade-in">
+                Descubra e compartilhe ideias sustentáveis para tornar seu dia a dia mais eco-friendly
+            </p>
             <div class="flex flex-wrap justify-center gap-4 fade-in">
-                <a href="#ideias" class="bg-white text-green-600 px-6 py-3 rounded-lg font-medium hover:bg-green-50 transition shadow-md">Ver Ideias</a>
-                <a href="#contribua" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-green-600 transition">Contribuir</a>
+                <a
+                    href="#ideias"
+                    class="bg-white text-green-600 px-6 py-3 rounded-lg font-medium hover:bg-green-50 transition shadow-md"
+                    >Ver Ideias</a
+                >
+                <a
+                    href="#contribua"
+                    class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-green-600 transition"
+                    >Contribuir</a
+                >
             </div>
         </div>
     </section>
@@ -72,88 +99,220 @@
     <!-- Ideas Section -->
     <section id="ideias" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="title-font text-3xl md:text-4xl font-bold text-center mb-6 text-gray-800">Banco de Ideias</h2>
-            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Explore ideias sustentáveis que você pode implementar no seu cotidiano. Contribua com suas próprias ideias e inspire outras pessoas!</p>
+            <h2
+                class="title-font text-3xl md:text-4xl font-bold text-center mb-6 text-gray-800"
+            >
+                Banco de Ideias
+            </h2>
+            <p
+                class="text-center text-gray-600 max-w-3xl mx-auto mb-12"
+            >
+                Explore ideias sustentáveis que você pode implementar no seu cotidiano.
+                Contribua com suas próprias ideias e inspire outras pessoas!
+            </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="ideas-container">
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                id="ideas-container"
+            >
                 <!-- Existing Idea Cards -->
-                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition" data-category="casa">
+                <div
+                    class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition"
+                    data-category="casa"
+                >
                     <div class="flex items-center mb-4">
-                        <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        <div
+                            class="bg-green-100 p-3 rounded-full mr-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-green-600"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                                />
                             </svg>
                         </div>
                         <h3 class="font-bold text-xl text-gray-800">Horta Vertical</h3>
                     </div>
-                    <p class="text-gray-600 mb-4">Crie uma horta vertical com garrafas PET ou pallets. É ideal para apartamentos e reduz o consumo de alimentos embalados.</p>
+                    <p class="text-gray-600 mb-4">
+                        Crie uma horta vertical com garrafas PET ou pallets. É ideal para apartamentos e reduz o consumo de alimentos embalados.
+                    </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Agricultura urbana</span>
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Reciclagem</span>
+                        <span
+                            class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full"
+                            >Agricultura urbana</span
+                        >
+                        <span
+                            class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full"
+                            >Reciclagem</span
+                        >
                     </div>
                 </div>
 
-                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition" data-category="alimentacao">
+                <div
+                    class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition"
+                    data-category="alimentacao"
+                >
                     <div class="flex items-center mb-4">
-                        <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <div
+                            class="bg-green-100 p-3 rounded-full mr-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-green-600"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
                             </svg>
                         </div>
                         <h3 class="font-bold text-xl text-gray-800">Compre a granel</h3>
                     </div>
-                    <p class="text-gray-600 mb-4">Prefira mercados que vendem produtos a granel e leve seus próprios recipientes. Reduz o uso de embalagens plásticas desnecessárias.</p>
+                    <p class="text-gray-600 mb-4">
+                        Prefira mercados que vendem produtos a granel e leve seus próprios recipientes. Reduz o uso de embalagens plásticas desnecessárias.
+                    </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Consumo consciente</span>
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Lixo zero</span>
+                        <span
+                            class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full"
+                            >Consumo consciente</span
+                        >
+                        <span
+                            class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full"
+                            >Lixo zero</span
+                        >
                     </div>
                 </div>
 
-                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition" data-category="transporte">
+                <div
+                    class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition"
+                    data-category="transporte"
+                >
                     <div class="flex items-center mb-4">
-                        <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        <div
+                            class="bg-green-100 p-3 rounded-full mr-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-green-600"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                                />
                             </svg>
                         </div>
                         <h3 class="font-bold text-xl text-gray-800">Bicicleta compartilhada</h3>
                     </div>
-                    <p class="text-gray-600 mb-4">Use sistemas de bicicletas compartilhadas para trajetos curtos. Se possível, invista em uma bicicleta própria para o dia a dia.</p>
+                    <p class="text-gray-600 mb-4">
+                        Use sistemas de bicicletas compartilhadas para trajetos curtos. Se possível, invista em uma bicicleta própria para o dia a dia.
+                    </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Mobilidade urbana</span>
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Baixa emissão</span>
+                        <span
+                            class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full"
+                            >Mobilidade urbana</span
+                        >
+                        <span
+                            class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full"
+                            >Baixa emissão</span
+                        >
                     </div>
                 </div>
 
-                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition" data-category="consumo">
+                <div
+                    class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition"
+                    data-category="consumo"
+                >
                     <div class="flex items-center mb-4">
-                        <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        <div
+                            class="bg-green-100 p-3 rounded-full mr-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-green-600"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                                />
                             </svg>
                         </div>
                         <h3 class="font-bold text-xl text-gray-800">Troca de roupas</h3>
                     </div>
-                    <p class="text-gray-600 mb-4">Participe de eventos de troca de roupas ou organize com amigos. Dê nova vida a peças que você não usa mais e evite o consumo desnecessário.</p>
+                    <p class="text-gray-600 mb-4">
+                        Participe de eventos de troca de roupas ou organize com amigos. Dê nova vida a peças que você não usa mais e evite o consumo desnecessário.
+                    </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Moda sustentável</span>
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Economia circular</span>
+                        <span
+                            class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full"
+                            >Moda sustentável</span
+                        >
+                        <span
+                            class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full"
+                            >Economia circular</span
+                        >
                     </div>
                 </div>
 
-                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition" data-category="casa">
+                <div
+                    class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition"
+                    data-category="casa"
+                >
                     <div class="flex items-center mb-4">
-                        <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        <div
+                            class="bg-green-100 p-3 rounded-full mr-4"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-8 w-8 text-green-600"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                                />
                             </svg>
                         </div>
                         <h3 class="font-bold text-xl text-gray-800">Composteira doméstica</h3>
                     </div>
-                    <p class="text-gray-600 mb-4">Transforme resíduos orgânicos em adubo com uma composteira caseira. Reduza em até 50% seu lixo doméstico e produza fertilizante natural.</p>
+                    <p class="text-gray-600 mb-4">
+                        Transforme resíduos orgânicos em adubo com uma composteira caseira. Reduza em até 50% seu lixo doméstico e produza fertilizante natural.
+                    </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Reciclagem orgânica</span>
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Jardinagem</span>
+                        <span
+                            class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full"
+                            >Reciclagem orgânica</span
+                        >
+                        <span
+                            class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full"
+                            >Jardinagem</span
+                        >
                     </div>
                 </div>
             </div>
@@ -163,15 +322,28 @@
     <!-- Contribute Section -->
     <section id="contribua" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="title-font text-3xl md:text-4xl font-bold text-center mb-6 text-gray-800">Contribua com sua Ideia</h2>
+            <h2
+                class="title-font text-3xl md:text-4xl font-bold text-center mb-6 text-gray-800"
+            >
+                Contribua com sua Ideia
+            </h2>
             <form id="idea-form" class="max-w-lg mx-auto">
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700">Seu Nome:</label>
-                    <input type="text" id="name" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                    <input
+                        type="text"
+                        id="name"
+                        class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                        required
+                    />
                 </div>
                 <div class="mb-4">
                     <label for="category" class="block text-gray-700">Categoria:</label>
-                    <select id="category" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                    <select
+                        id="category"
+                        class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                        required
+                    >
                         <option value="casa">Casa</option>
                         <option value="alimentacao">Alimentação</option>
                         <option value="transporte">Transporte</option>
@@ -179,54 +351,47 @@
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label for="description" class="block text-gray-700">Descrição da Ideia:</label>
-                    <textarea id="description" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required></textarea>
+                    <label for="description" class="block text-gray-700"
+                        >Descrição da Ideia:</label
+                    >
+                    <textarea
+                        id="description"
+                        rows="4"
+                        class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                        required
+                    ></textarea>
                 </div>
-                <button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">Enviar Ideia</button>
+                <button
+                    type="submit"
+                    class="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
+                >
+                    Enviar Ideia
+                </button>
             </form>
         </div>
     </section>
 
-    <footer class="bg-green-600 text-white py-6">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Banco de Ideias Sustentáveis HVS. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script>
-        const form = document.getElementById('idea-form');
-        const ideasContainer = document.getElementById('ideas-container');
-
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const category = document.getElementById('category').value;
-            const description = document.getElementById('description').value;
-
-            const newIdeaCard = document.createElement('div');
-            newIdeaCard.className = 'idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition';
-            newIdeaCard.setAttribute('data-category', category);
-            newIdeaCard.innerHTML = `
-                <div class="flex items-center mb-4">
-                    <div class="bg-green-100 p-3 rounded-full mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-xl text-gray-800">${name}</h3>
-                </div>
-                <p class="text-gray-600 mb-4">${description}</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">${category}</span>
-                </div>
-            `;
-
-            ideasContainer.appendChild(newIdeaCard);
-
-            // Reset the form
-            form.reset();
-        });
-    </script>
-</body>
-</html>
+    <!-- About Section -->
+    <section
+        id="sobre"
+        class="py-16 bg-green-100"
+    >
+        <div class="container mx-auto px-4 max-w-4xl text-gray-800">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center mb-6">
+                Sobre o Banco de Ideias Sustentáveis HVS
+            </h2>
+            <p class="mb-6 text-lg leading-relaxed">
+                O Banco de Ideias Sustentáveis HVS é uma plataforma criada para incentivar e facilitar a
+                troca de ideias que promovam a sustentabilidade no nosso dia a dia. Nosso objetivo é
+                conectar pessoas que desejam adotar práticas mais conscientes, colaborando para um futuro
+                mais verde e equilibrado.
+            </p>
+            <p class="mb-6 text-lg leading-relaxed">
+                Por meio de um design simples e intuitivo, buscamos proporcionar uma experiência agradável,
+                permitindo que qualquer pessoa compartilhe suas sugestões e aprenda com a comunidade. As ideias
+                aqui são embasadas em fontes confiáveis e experiências reais, com foco em práticas que podem ser
+                aplicadas no cotidiano, seja em casa, na alimentação, no transporte ou no consumo responsável.
+            </p>
+            <p class="mb-6 text-lg leading-relaxed">
+                Convidamos você a explorar as ideias já cadastradas, experimentar as sugestões e contribuir com as suas próprias, fomentando juntos uma rede de colaboração sustentável.
+            </p
