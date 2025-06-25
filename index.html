@@ -76,7 +76,86 @@
             <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Explore ideias sustentáveis que você pode implementar no seu cotidiano. Contribua com suas próprias ideias e inspire outras pessoas!</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="ideas-container">
-                <!-- Existing Idea Cards will be here -->
+                <!-- Existing Idea Cards -->
+                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition" data-category="casa">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-800">Horta Vertical</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Crie uma horta vertical com garrafas PET ou pallets. É ideal para apartamentos e reduz o consumo de alimentos embalados.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Agricultura urbana</span>
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Reciclagem</span>
+                    </div>
+                </div>
+
+                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition" data-category="alimentacao">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-800">Compre a granel</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Prefira mercados que vendem produtos a granel e leve seus próprios recipientes. Reduz o uso de embalagens plásticas desnecessárias.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Consumo consciente</span>
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Lixo zero</span>
+                    </div>
+                </div>
+
+                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition" data-category="transporte">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-800">Bicicleta compartilhada</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Use sistemas de bicicletas compartilhadas para trajetos curtos. Se possível, invista em uma bicicleta própria para o dia a dia.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Mobilidade urbana</span>
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Baixa emissão</span>
+                    </div>
+                </div>
+
+                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition" data-category="consumo">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-800">Troca de roupas</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Participe de eventos de troca de roupas ou organize com amigos. Dê nova vida a peças que você não usa mais e evite o consumo desnecessário.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Moda sustentável</span>
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Economia circular</span>
+                    </div>
+                </div>
+
+                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition" data-category="casa">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-800">Composteira doméstica</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Transforme resíduos orgânicos em adubo com uma composteira caseira. Reduza em até 50% seu lixo doméstico e produza fertilizante natural.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Reciclagem orgânica</span>
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Jardinagem</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
