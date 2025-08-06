@@ -22,12 +22,6 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
-        .badge {
-            transition: all 0.2s ease;
-        }
-        .badge:hover {
-            transform: scale(1.05);
-        }
         .fade-in {
             animation: fadeIn 0.8s ease-in;
         }
@@ -35,7 +29,16 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .hidden {
+            display: none;
+        }
     </style>
+    <script>
+        function toggleSuggestionForm() {
+            const form = document.getElementById('suggestion-form');
+            form.classList.toggle('hidden');
+        }
+    </script>
 </head>
 <body class="bg-green-50">
     <!-- Header/Navigation -->
@@ -192,7 +195,9 @@
 
             <!-- Button for Suggestions -->
             <div class="mt-8 text-center">
-                <a href="mailto:sustensite@gmail.com?subject=Sugestão&body=Escreva sua sugestão aqui..." class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
+                <button id="suggestion-button" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition" onclick="toggleSuggestionForm()">
                     Enviar Sugestão
-                </a>
+                </button>
             </div>
+
+            <!-- Suggest
