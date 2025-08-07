@@ -61,7 +61,7 @@
     <!-- Hero Section -->
     <section id="inicio" class="py-16 md:py-24 bg-gradient-to-r from-green-500 to-green-600 text-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="title-font text-4xl md:text-6xl font-bold mb-6 fade-in">Pequnos Gestos, Grandes Impactos</h2>
+            <h2 class="title-font text-4xl md:text-6xl font-bold mb-6 fade-in">Pequenos Gestos, Grandes Impactos</h2>
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto fade-in">Descubra e compartilhe ideias sustentáveis para tornar seu dia a dia mais eco-friendly</p>
             <div class="flex flex-wrap justify-center gap-4 fade-in">
                 <a href="#ideias" class="bg-white text-green-600 px-6 py-3 rounded-lg font-medium hover:bg-green-50 transition shadow-md">Ver Ideias</a>
@@ -77,7 +77,7 @@
             <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Explore ideias sustentáveis que você pode implementar no seu cotidiano. Contribua com suas próprias ideias e inspire outras pessoas!</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="ideas-container">
-                <!-- Existing Idea Cards -->
+                <!-- Exemplo de ideia fixa -->
                 <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer" data-category="casa" 
                      onclick="showIdeaDetail('Horta Vertical', 'Crie uma horta vertical com garrafas PET ou pallets. É ideal para apartamentos e reduz o consumo de alimentos embalados. <br><br><strong>Materiais necessários:</strong> Garrafas PET/pallets, terra, mudas, corda/arame.<br><strong>Dificuldade:</strong> Fácil<br><strong>Impacto:</strong> Reduz até 30% do lixo orgânico')">
                     <div class="flex items-center mb-4">
@@ -94,9 +94,6 @@
                         <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Reciclagem</span>
                     </div>
                 </div>
-
-                <!-- Additional Idea Cards Here -->
-
             </div>
         </div>
     </section>
@@ -136,7 +133,7 @@
         </div>
     </footer>
 
-    <!-- Detailed Idea Modal -->
+    <!-- Modal -->
     <div id="idea-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 transition-opacity duration-300">
         <div class="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl transform transition-all duration-300 scale-95 opacity-0">
             <div class="flex justify-between items-start mb-4">
@@ -151,22 +148,19 @@
         </div>
     </div>
 
+    <!-- JavaScript -->
     <script>
         const form = document.getElementById('idea-form');
         const ideasContainer = document.getElementById('ideas-container');
 
-        // Load saved ideas on page load and clear localStorage
+        // Load ideas from localStorage
         document.addEventListener('DOMContentLoaded', () => {
-            localStorage.clear(); // Limpa o localStorage
             const savedIdeas = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
-            savedIdeas.forEach(idea => {
-                renderIdea(idea);
-            });
+            savedIdeas.forEach(renderIdea);
         });
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            event.stopPropagation();
 
             const name = document.getElementById('name').value.trim();
             const category = document.getElementById('category').value;
@@ -187,23 +181,20 @@
                 createdAt: new Date().toISOString()
             };
 
-            // Store the new idea in localStorage
             const ideas = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
             ideas.push(newIdea);
             localStorage.setItem('savedIdeas', JSON.stringify(ideas));
 
-            // Render the new idea in the mural
             renderIdea(newIdea);
-
             form.reset();
         });
 
         function renderIdea(idea) {
-            const newIdeaCard = document.createElement('div');
-            newIdeaCard.className = 'idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer';
-            newIdeaCard.setAttribute('data-category', idea.category);
-            newIdeaCard.setAttribute('onclick', `showIdeaDetail('${idea.name.replace(/'/g, "\\'")}', '${idea.description.replace(/'/g, "\\'")}')`);
-            newIdeaCard.innerHTML = `
+            const newCard = document.createElement('div');
+            newCard.className = 'idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer';
+            newCard.setAttribute('data-category', idea.category);
+            newCard.setAttribute('onclick', `showIdeaDetail('${idea.name.replace(/'/g, "\\'")}', '${idea.description.replace(/'/g, "\\'")}')`);
+            newCard.innerHTML = `
                 <div class="flex items-center mb-4">
                     <div class="bg-green-100 p-3 rounded-full mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -217,8 +208,7 @@
                     <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">${idea.category}</span>
                 </div>
             `;
-
-            ideasContainer.prepend(newIdeaCard);
+            ideasContainer.prepend(newCard);
         }
 
         function escapeHTML(str) {
@@ -229,7 +219,6 @@
             const modal = document.getElementById('idea-modal');
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-content').innerHTML = content;
-
             modal.classList.remove('hidden');
             setTimeout(() => {
                 modal.querySelector('div').classList.remove('scale-95', 'opacity-0');
@@ -245,17 +234,11 @@
         }
 
         document.getElementById('close-modal').addEventListener('click', hideModal);
-
-        document.getElementById('idea-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                hideModal();
-            }
+        document.getElementById('idea-modal').addEventListener('click', e => {
+            if (e.target === e.currentTarget) hideModal();
         });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !document.getElementById('idea-modal').classList.contains('hidden')) {
-                hideModal();
-            }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') hideModal();
         });
     </script>
 </body>
