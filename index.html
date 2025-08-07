@@ -217,4 +217,197 @@
         const form = document.getElementById('idea-form');
         const ideasContainer = document.getElementById('ideas-container');
 
-       
+        // Load saved ideas on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedIdeas = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
+            
+            savedIdeas.forEach(idea => {
+                const savedCard = document.createElement('div');
+                savedCard.className = 'idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer';
+                savedCard.setAttribute('data-category', idea.category);
+                savedCard.setAttribute('onclick', `showIdeaDetail('${idea.name.replace(/'/g, "\\'")}', '${idea.description.replace(/'/g, "\\'")}')`);
+                savedCard.innerHTML = `
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-800">${idea.name}</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">${idea.description}</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">${idea.category}</span>
+                    </div>
+                `;
+                ideasContainer.appendChild(savedCard);
+            });
+        });
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const category = document.getElementById('category').value;
+            const description = document.getElementById('description').value.trim();
+
+            // Validate form inputs with more specific feedback
+            if (!name) {
+                showFormError('Por favor, insira seu nome');
+                document.getElementById('name').focus();
+                return;
+            }
+            if (!description) {
+                showFormError('Por favor, descreva sua ideia');
+                document.getElementById('description').focus();
+                return;
+            }
+
+            // Create new idea card with proper sanitization
+            const safeName = escapeHTML(name);
+            const safeDescription = escapeHTML(description);
+            
+            const newIdeaCard = document.createElement('div');
+            newIdeaCard.className = 'idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer';
+            newIdeaCard.setAttribute('data-category', category);
+            newIdeaCard.setAttribute('onclick', `showIdeaDetail('${safeName}', '${safeDescription}')`);
+            newIdeaCard.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <div class="bg-green-100 p-3 rounded-full mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800">${name}</h3>
+                </div>
+                <p class="text-gray-600 mb-4">${description}</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">${category}</span>
+                </div>
+            `;
+
+            // Validate form inputs
+            if (!name || !category || !description) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
+
+            // Save to local storage
+            const ideas = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
+            
+            const newIdea = {
+                name: name,
+                category: category,
+                description: description,
+                createdAt: new Date().toISOString()
+            };
+            
+            ideas.push(newIdea);
+            localStorage.setItem('savedIdeas', JSON.stringify(ideas));
+
+            // Scroll to show new idea
+            // Add card with animation
+            newIdeaCard.style.opacity = '0';
+            ideasContainer.prepend(newIdeaCard);
+            
+            // Animate card appearance
+            newIdeaCard.animate([
+                { opacity: 0, transform: 'translateY(20px)' },
+                { opacity: 1, transform: 'translateY(0)' }
+            ], {
+                duration: 500,
+                easing: 'ease-out'
+            });
+            
+            // Scroll to show new idea
+            setTimeout(() => {
+                newIdeaCard.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start' 
+                });
+            }, 100);
+
+            // Show success message and focus back to form
+            // Clear form
+            form.reset();
+            
+            // Create success message with icon
+            const successMsg = document.createElement('div');
+            successMsg.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center animate-bounce';
+            successMsg.innerHTML = `
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Ideia enviada com sucesso!
+            `;
+            document.body.appendChild(successMsg);
+            
+            // Remove success message after 3 seconds
+            setTimeout(() => {
+                successMsg.style.transition = 'opacity 0.5s';
+                successMsg.style.opacity = '0';
+                setTimeout(() => successMsg.remove(), 500);
+            }, 3000);
+        });
+
+        // Helper functions
+        function escapeHTML(str) {
+            return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+        
+        function showFormError(message) {
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'mb-4 bg-red-100 border-l-4 border-red-500 text-red-700 p-4';
+            errorMsg.textContent = message;
+            
+            const form = document.getElementById('idea-form');
+            const existingError = form.querySelector('.bg-red-100');
+            if (existingError) existingError.remove();
+            
+            form.insertBefore(errorMsg, form.firstChild);
+            
+            setTimeout(() => {
+                errorMsg.style.opacity = '0';
+                setTimeout(() => errorMsg.remove(), 500);
+            }, 5000);
+        }
+
+        // Modal functions
+        function showIdeaDetail(title, content) {
+            const modal = document.getElementById('idea-modal');
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-content').innerHTML = content;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.querySelector('div').classList.remove('scale-95', 'opacity-0');
+            }, 10);
+        }
+
+        function hideModal() {
+            const modal = document.getElementById('idea-modal');
+            modal.querySelector('div').classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        document.getElementById('close-modal').addEventListener('click', hideModal);
+
+        // Close modal when clicking outside
+        document.getElementById('idea-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideModal();
+            }
+        });
+    // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !document.getElementById('idea-modal').classList.contains('hidden')) {
+                hideModal();
+            }
+        });
+    </script>
+</body>
+</html>
