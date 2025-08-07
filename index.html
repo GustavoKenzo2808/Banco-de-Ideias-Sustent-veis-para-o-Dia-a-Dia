@@ -155,8 +155,9 @@
         const form = document.getElementById('idea-form');
         const ideasContainer = document.getElementById('ideas-container');
 
-        // Load saved ideas on page load
+        // Load saved ideas on page load and clear localStorage
         document.addEventListener('DOMContentLoaded', () => {
+            localStorage.clear(); // Limpa o localStorage
             const savedIdeas = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
             savedIdeas.forEach(idea => {
                 renderIdea(idea);
