@@ -22,6 +22,12 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
+        .badge {
+            transition: all 0.2s ease;
+        }
+        .badge:hover {
+            transform: scale(1.05);
+        }
         .fade-in {
             animation: fadeIn 0.8s ease-in;
         }
@@ -29,23 +35,10 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .hidden {
-            display: none;
-        }
     </style>
-    <script>
-        function toggleSuggestionForm() {
-            const form = document.getElementById('suggestion-form');
-            form.classList.toggle('hidden');
-        }
-
-        function showIdeaDetail(titulo, descricao) {
-            alert(`${titulo}\n\n${descricao.replace(/<br>/g, '\n').replace(/<[^>]+>/g, '')}`);
-        }
-    </script>
 </head>
 <body class="bg-green-50">
-    <!-- Header -->
+    <!-- Header/Navigation -->
     <header class="bg-green-600 text-white shadow-lg">
         <div class="container mx-auto px-4 py-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -66,9 +59,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="py-16 md:py-24 bg-gradient-to-r from-green-500 to-green-600 text-white text-center">
-        <div class="container mx-auto px-4">
-            <h2 class="title-font text-4xl md:text-6xl font-bold mb-6 fade-in">Pequenos Gestos, Grandes Impactos</h2>
+    <section id="inicio" class="py-16 md:py-24 bg-gradient-to-r from-green-500 to-green-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="title-font text-4xl md:text-6xl font-bold mb-6 fade-in">Pequnos Gestos, Grandes Impactos</h2>
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto fade-in">Descubra e compartilhe ideias sustentáveis para tornar seu dia a dia mais eco-friendly</p>
             <div class="flex flex-wrap justify-center gap-4 fade-in">
                 <a href="#ideias" class="bg-white text-green-600 px-6 py-3 rounded-lg font-medium hover:bg-green-50 transition shadow-md">Ver Ideias</a>
@@ -84,85 +77,83 @@
             <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">Explore ideias sustentáveis que você pode implementar no seu cotidiano. Contribua com suas próprias ideias e inspire outras pessoas!</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="ideas-container">
-                <!-- Idea 1 -->
-                <div class="idea-card p-6 bg-white rounded-xl shadow-md" onclick="showIdeaDetail('Horta Vertical', 'Crie uma horta vertical com garrafas PET ou pallets. É ideal para apartamentos e reduz o consumo de alimentos embalados. <br><br><strong>Materiais necessários:</strong> Garrafas PET/pallets, terra, mudas, corda/arame.<br><strong>Dificuldade:</strong> Fácil<br><strong>Impacto:</strong> Reduz até 30% do lixo orgânico')">
+                <!-- Existing Idea Cards -->
+                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer" data-category="casa" 
+                     onclick="showIdeaDetail('Horta Vertical', 'Crie uma horta vertical com garrafas PET ou pallets. É ideal para apartamentos e reduz o consumo de alimentos embalados. <br><br><strong>Materiais necessários:</strong> Garrafas PET/pallets, terra, mudas, corda/arame.<br><strong>Dificuldade:</strong> Fácil<br><strong>Impacto:</strong> Reduz até 30% do lixo orgânico')">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0V9a2 2 0 00-2-2H7a2 2 0 00-2 2v2" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                             </svg>
                         </div>
                         <h3 class="font-bold text-xl text-gray-800">Horta Vertical</h3>
                     </div>
-                    <p class="text-gray-600 mb-4">Crie uma horta vertical com garrafas PET ou pallets. Ideal para apartamentos.</p>
+                    <p class="text-gray-600 mb-4">Crie uma horta vertical com garrafas PET ou pallets. É ideal para apartamentos e reduz o consumo de alimentos embalados.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Agricultura urbana</span>
                         <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Reciclagem</span>
                     </div>
                 </div>
 
-                <!-- Idea 2 -->
-                <div class="idea-card p-6 bg-white rounded-xl shadow-md" onclick="showIdeaDetail('Compre a granel', 'Prefira mercados que vendem produtos a granel e leve seus próprios recipientes. Reduz o uso de embalagens plásticas desnecessárias.<br><br><strong>Benefícios:</strong> Redução de até 80% no uso de embalagens plásticas<br><strong>Dificuldade:</strong> Fácil<br><strong>Impacto:</strong> Alto')">
+                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer" data-category="alimentacao" onclick="showIdeaDetail('Compre a granel', 'Prefira mercados que vendem produtos a granel e leve seus próprios recipientes. Reduz o uso de embalagens plásticas desnecessárias.<br><br><strong>Benefícios:</strong> Redução de até 80% no uso de embalagens plásticas<br><strong>Dificuldade:</strong> Fácil<br><strong>Impacto:</strong> Alto')">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
                         <h3 class="font-bold text-xl text-gray-800">Compre a granel</h3>
                     </div>
-                    <p class="text-gray-600 mb-4">Leve seus próprios potes e reduza o uso de plásticos.</p>
+                    <p class="text-gray-600 mb-4">Prefira mercados que vendem produtos a granel e leve seus próprios recipientes. Reduz o uso de embalagens plásticas desnecessárias.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Consumo consciente</span>
                         <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Lixo zero</span>
                     </div>
                 </div>
 
-                <!-- Idea 3 -->
-                <div class="idea-card p-6 bg-white rounded-xl shadow-md" onclick="showIdeaDetail('Bicicleta compartilhada', 'Use sistemas de bicicletas compartilhadas para trajetos curtos. Se possível, invista em uma bicicleta própria.<br><br><strong>Benefícios:</strong> Redução de emissões e saúde<br><strong>Dificuldade:</strong> Fácil<br><strong>Impacto:</strong> Médio')">
+                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer" data-category="transporte" onclick="showIdeaDetail('Bicicleta compartilhada', 'Use sistemas de bicicletas compartilhadas para trajetos curtos. Se possível, invista em uma bicicleta própria para o dia a dia.<br><br><strong>Benefícios:</strong> Redução de emissões de carbono e melhoria da saúde<br><strong>Dificuldade:</strong> Fácil<br><strong>Impacto:</strong> Médio')">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                             </svg>
                         </div>
                         <h3 class="font-bold text-xl text-gray-800">Bicicleta compartilhada</h3>
                     </div>
-                    <p class="text-gray-600 mb-4">Reduza poluição e pratique atividade física.</p>
+                    <p class="text-gray-600 mb-4">Use sistemas de bicicletas compartilhadas para trajetos curtos. Se possível, invista em uma bicicleta própria para o dia a dia.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Mobilidade urbana</span>
                         <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Baixa emissão</span>
                     </div>
                 </div>
 
-                <!-- Idea 4 -->
-                <div class="idea-card p-6 bg-white rounded-xl shadow-md" onclick="showIdeaDetail('Troca de roupas', 'Participe de eventos de troca de roupas ou organize com amigos. Dê nova vida às peças que você não usa mais.<br><br><strong>Benefícios:</strong> Redução no consumo e na produção de lixo têxtil<br><strong>Dificuldade:</strong> Moderado<br><strong>Impacto:</strong> Alto')">
+                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer" data-category="consumo" onclick="showIdeaDetail('Troca de roupas', 'Participe de eventos de troca de roupas ou organize com amigos. Dê nova vida a peças que você não usa mais e evite o consumo desnecessário.<br><br><strong>Benefícios:</strong> Reduz o consumo e o desperdício na indústria da moda<br><strong>Dificuldade:</strong> Moderado<br><strong>Impacto:</strong> Alto')">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m0 0v10l8 4 8-4V7z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
                         </div>
                         <h3 class="font-bold text-xl text-gray-800">Troca de roupas</h3>
                     </div>
-                    <p class="text-gray-600 mb-4">Moda consciente e menos desperdício.</p>
+                    <p class="text-gray-600 mb-4">Participe de eventos de troca de roupas ou organize com amigos. Dê nova vida a peças que você não usa mais e evite o consumo desnecessário.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Moda sustentável</span>
                         <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Economia circular</span>
                     </div>
                 </div>
 
-                <!-- Idea 5 -->
-                <div class="idea-card p-6 bg-white rounded-xl shadow-md" onclick="showIdeaDetail('Composteira doméstica', 'Transforme resíduos orgânicos em adubo com uma composteira caseira. Reduza até 50% do seu lixo.<br><br><strong>Materiais:</strong> Baldes ou caixas, minhocas californianas (opcional), restos orgânicos.<br><strong>Dificuldade:</strong> Fácil<br><strong>Impacto:</strong> Alto')">
+                <div class="idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer" data-category="casa" 
+                     onclick="showIdeaDetail('Horta Vertical', 'Crie uma horta vertical com garrafas PET ou pallets. É ideal para apartamentos e reduz o consumo de alimentos embalados. <br><br><strong>Materiais necessários:</strong> Garrafas PET/pallets, terra, mudas, corda/arame.<br><strong>Dificuldade:</strong> Fácil<br><strong>Impacto:</strong> Reduz até 30% do lixo orgânico')">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                             </svg>
                         </div>
                         <h3 class="font-bold text-xl text-gray-800">Composteira doméstica</h3>
                     </div>
-                    <p class="text-gray-600 mb-4">Reduza o lixo e produza adubo natural.</p>
+                    <p class="text-gray-600 mb-4">Transforme resíduos orgânicos em adubo com uma composteira caseira. Reduza em até 50% seu lixo doméstico e produza fertilizante natural.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Reciclagem orgânica</span>
                         <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Jardinagem</span>
@@ -198,31 +189,225 @@
                     Enviar Ideia
                 </button>
             </form>
-
-            <!-- Button and Suggestion Form -->
-            <div class="mt-8 text-center">
-                <button id="suggestion-button" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition" onclick="toggleSuggestionForm()">
-                    Enviar Sugestão
-                </button>
-            </div>
-
-            <div id="suggestion-form" class="hidden max-w-lg mx-auto mt-8">
-                <h3 class="text-2xl font-semibold text-center mb-4 text-gray-700">Envie uma sugestão para o site</h3>
-                <form>
-                    <div class="mb-4">
-                        <label for="suggestion-name" class="block text-gray-700">Seu Nome:</label>
-                        <input type="text" id="suggestion-name" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="suggestion-message" class="block text-gray-700">Mensagem:</label>
-                        <textarea id="suggestion-message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition transform hover:-translate-y-1 active:translate-y-0 font-semibold text-lg">
-                        Enviar Sugestão
-                    </button>
-                </form>
-            </div>
         </div>
     </section>
+
+    <footer class="bg-green-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Banco de Ideias Sustentáveis HVS. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Detailed Idea Modal -->
+    <div id="idea-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 transition-opacity duration-300">
+        <div class="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl transform transition-all duration-300 scale-95 opacity-0">
+            <div class="flex justify-between items-start mb-4">
+                <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div id="modal-content" class="text-gray-600"></div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('idea-form');
+        const ideasContainer = document.getElementById('ideas-container');
+
+        // Load saved ideas on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedIdeas = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
+            
+            savedIdeas.forEach(idea => {
+                const savedCard = document.createElement('div');
+                savedCard.className = 'idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer';
+                savedCard.setAttribute('data-category', idea.category);
+                savedCard.setAttribute('onclick', `showIdeaDetail('${idea.name.replace(/'/g, "\\'")}', '${idea.description.replace(/'/g, "\\'")}')`);
+                savedCard.innerHTML = `
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-800">${idea.name}</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">${idea.description}</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">${idea.category}</span>
+                    </div>
+                `;
+                ideasContainer.appendChild(savedCard);
+            });
+        });
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const category = document.getElementById('category').value;
+            const description = document.getElementById('description').value.trim();
+
+            // Validate form inputs with more specific feedback
+            if (!name) {
+                showFormError('Por favor, insira seu nome');
+                document.getElementById('name').focus();
+                return;
+            }
+            if (!description) {
+                showFormError('Por favor, descreva sua ideia');
+                document.getElementById('description').focus();
+                return;
+            }
+
+            // Create new idea card with proper sanitization
+            const safeName = escapeHTML(name);
+            const safeDescription = escapeHTML(description);
+            
+            const newIdeaCard = document.createElement('div');
+            newIdeaCard.className = 'idea-card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer';
+            newIdeaCard.setAttribute('data-category', category);
+            newIdeaCard.setAttribute('onclick', `showIdeaDetail('${safeName}', '${safeDescription}')`);
+            newIdeaCard.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <div class="bg-green-100 p-3 rounded-full mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800">${name}</h3>
+                </div>
+                <p class="text-gray-600 mb-4">${description}</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">${category}</span>
+                </div>
+            `;
+
+            // Validate form inputs
+            if (!name || !category || !description) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
+
+            // Save to local storage
+            const ideas = JSON.parse(localStorage.getItem('savedIdeas') || '[]');
+            
+            const newIdea = {
+                name: name,
+                category: category,
+                description: description,
+                createdAt: new Date().toISOString()
+            };
+            
+            ideas.push(newIdea);
+            localStorage.setItem('savedIdeas', JSON.stringify(ideas));
+
+            // Scroll to show new idea
+            // Add card with animation
+            newIdeaCard.style.opacity = '0';
+            ideasContainer.prepend(newIdeaCard);
+            
+            // Animate card appearance
+            newIdeaCard.animate([
+                { opacity: 0, transform: 'translateY(20px)' },
+                { opacity: 1, transform: 'translateY(0)' }
+            ], {
+                duration: 500,
+                easing: 'ease-out'
+            });
+            
+            // Scroll to show new idea
+            setTimeout(() => {
+                newIdeaCard.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start' 
+                });
+            }, 100);
+
+            // Show success message and focus back to form
+            // Clear form
+            form.reset();
+            
+            // Create success message with icon
+            const successMsg = document.createElement('div');
+            successMsg.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center animate-bounce';
+            successMsg.innerHTML = `
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Ideia enviada com sucesso!
+            `;
+            document.body.appendChild(successMsg);
+            
+            // Remove success message after 3 seconds
+            setTimeout(() => {
+                successMsg.style.transition = 'opacity 0.5s';
+                successMsg.style.opacity = '0';
+                setTimeout(() => successMsg.remove(), 500);
+            }, 3000);
+        });
+
+        // Helper functions
+        function escapeHTML(str) {
+            return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+        
+        function showFormError(message) {
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'mb-4 bg-red-100 border-l-4 border-red-500 text-red-700 p-4';
+            errorMsg.textContent = message;
+            
+            const form = document.getElementById('idea-form');
+            const existingError = form.querySelector('.bg-red-100');
+            if (existingError) existingError.remove();
+            
+            form.insertBefore(errorMsg, form.firstChild);
+            
+            setTimeout(() => {
+                errorMsg.style.opacity = '0';
+                setTimeout(() => errorMsg.remove(), 500);
+            }, 5000);
+        }
+
+        // Modal functions
+        function showIdeaDetail(title, content) {
+            const modal = document.getElementById('idea-modal');
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-content').innerHTML = content;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.querySelector('div').classList.remove('scale-95', 'opacity-0');
+            }, 10);
+        }
+
+        function hideModal() {
+            const modal = document.getElementById('idea-modal');
+            modal.querySelector('div').classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        document.getElementById('close-modal').addEventListener('click', hideModal);
+
+        // Close modal when clicking outside
+        document.getElementById('idea-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideModal();
+            }
+        });
+    // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !document.getElementById('idea-modal').classList.contains('hidden')) {
+                hideModal();
+            }
+        });
+    </script>
 </body>
 </html>
